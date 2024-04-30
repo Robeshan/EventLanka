@@ -1,0 +1,89 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0; /* Light gray background */
+  }
+  
+  .tagline {
+    font-size: 0.8rem;
+    margin-bottom: 0;
+  }
+  
+  header {
+    background-color: #003366; /* Primary color for header */
+    color: #fff; /* White text for header */
+    padding: 10px 20px;
+  }
+  
+  header .nav {
+    display: flex; /* Arrange navigation links horizontally */
+  }
+  
+  header .nav-link {
+    color: inherit; /* Inherit white text color from header */
+    text-decoration: none;
+    padding: 10px 15px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2); /* Light border on hover */
+    transition: border-bottom 0.2s ease-in-out; /* Smoother border transition */
+  }
+  
+  header .nav-link:hover {
+    border-bottom: 1px solid #fff; /* White border on hover */
+  }
+  
+  .hero-section {
+    display: flex; /* Center content vertically and horizontally */
+    justify-content: center;
+    align-items: center;
+    min-height: 400px; /* Set a minimum height for the hero section */
+    background-image: url("path/to/your/background.jpg"); /* Add a background image (replace with your path) */
+    background-repeat: no-repeat; /* Prevent background image from repeating */
+    background-size: cover; /* Scale background image to cover the entire area */
+    background-position: center; /* Center the background image */
+  }
+  
+  .hero-section h2 {
+    text-align: center;
+    color: #fff; /* White text for hero section */
+    font-size: 2.2rem;
+    margin-bottom: 20px;
+  }
+  
+  .hero-section p {
+    color: #fff; /* White text for hero section */
+    font-size: 1.1rem;
+    line-height: 1.5; /* Adjust line spacing for better readability */
+  }
+  
+  .btn {
+    display: inline-block;
+    padding: 10px 20px;
+    border-radius: 5px;
+    background-color: #003366; /* Primary color for buttons */
+    color: #fff; /* White text for buttons */
+    text-decoration: none;
+    transition: background-color 0.2s ease-in-out; /* Smoother button color transition */
+    cursor: pointer;
+  }
+  
+  .btn:hover {
+    background-color: #00274c; /* Darken primary color on hover */
+  }
+  
+  /* Media Queries for Responsive Adjustments */
+  
+  @media only screen and (max-width: 768px) {
+    header .nav {
+      flex-direction: column; /* Stack navigation links vertically on smaller screens */
+      align-items: center; /* Center navigation links horizontally */
+    }
+  
+    header .nav-link {
+      padding: 10px;
+      border-bottom: none; /* Remove bottom border on smaller screens */
+    }
+  
+    .hero-section {
+      min-height: 300px; /* Adjust minimum height for smaller screens */
+    }
+  }
+  
