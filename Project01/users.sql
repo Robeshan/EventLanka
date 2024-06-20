@@ -1,0 +1,11 @@
+CREATE TABLE Users (
+    UserID INT PRIMARY KEY,
+    Username VARCHAR(50) NOT NULL,
+    Email VARCHAR(50) NOT NULL UNIQUE,
+    PhoneNumber VARCHAR(15) NOT NULL,
+    NICNumber VARCHAR(15) NOT NULL UNIQUE,
+    Password VARCHAR(50) NOT NULL,
+    ConfirmPassword VARCHAR(50) NOT NULL,
+    NICPhotos BLOB,
+    UserType VARCHAR(10) NOT NULL
+);
