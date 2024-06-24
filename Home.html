@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home - EventLanka</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- Font Awesome CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            font-family: "Inter-Regular", Helvetica, Arial, sans-serif;
+            width: 100%;
+            height: 100%;
+        }
+        a {
+            color: #ffffff;
+            text-decoration: none;
+            background-color: #521485;
+        }
+        a:hover {
+            color: rgb(253, 253, 3);
+            text-decoration: none;
+        }
+        .index {
+            background-color: #ffffff;
+            width: 100%;
+        }
+        .header {
+            align-items: center;
+            background-color: #521485;
+            display: flex;
+            height: 80px;
+            justify-content: space-between;
+            padding: 0 16px;
+            width: 100%;
+        }
+        .header .nav-left {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            margin-right: auto;
+        }
+        .header .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            margin-left: auto;
+            padding-right: 20px;
+        }
+        .header .nav-left img {
+            height: 40px;
+        }
+        .header .nav-left .company-name {
+            font-family: "Poppins-Bold", Helvetica;
+            font-size: 20px;
+            font-weight: 700;
+            color: #ffffff;
+        }
+        .header .nav-left a {
+            color: #ffffff;
+            font-size: 16px;
+            text-decoration: none;
+        }
+        .element-search-input {
+            align-items: center;
+            background-color: #ffffff;
+            border: 1px solid #dfdfdf;
+            border-radius: 8px;
+            display: flex;
+            gap: 8px;
+            padding: 4px 8px;
+        }
+        .element-search-input input {
+            border: none;
+            outline: none;
+            width: 100%;
+        }
+        .search-button {
+            background-color: transparent;
+            border: none;
+            color: #bd4a4a;
+            cursor: pointer;
+            padding: 0;
+            font-size: 16px;
+        }
+        .avatar {
+            background-color: #f7f7f7;
+            border-radius: 50%;
+            height: 48px;
+            width: 48px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .avatar i {
+            font-size: 24px;
+            color: #521485;
+        }
+        .hamburger-menu {
+            display: none;
+            cursor: pointer;
+        }
+        .hamburger-menu div {
+            width: 25px;
+            height: 3px;
+            background-color: #ffffff;
+            margin: 4px 0;
+        }
+        .header .nav-right.responsive {
+            display: flex;
+            flex-direction: column;
+            position: absolute;
+            top: 80px;
+            right: 0;
+            background-color: #ffffff;
+            width: 100%;
+            padding: 10px;
+        }
+        .header .nav-right.responsive a {
+            padding: 10px;
+            text-align: center;
+        }
+        @media (max-width: 768px) {
+            .header .nav-right {
+                display: none;
+            }
+            .header .hamburger-menu {
+                display: block;
+            }
+        }
+        .content {
+            padding: 20px;
+        }
+        .event-grid, .service-grid, .provider-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+        .event-grid .event, .service-grid .service, .provider-grid .provider {
+            border: 1px solid #dfdfdf;
+            border-radius: 8px;
+            padding: 15px;
+            text-align: center;
+        }
+        .event-grid .event img, .service-grid .service img, .provider-grid .provider img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+        .event-grid .event .description, .service-grid .service .description, .provider-grid .provider .description {
+            margin-top: 10px;
+        }
+        .event-grid .event .see-more, .service-grid .service .see-more, .provider-grid .provider .see-more {
+            display: inline-block;
+            margin-top: 10px;
+            background-color: #bd4a4a;
+            color: #ffffff;
+            padding: 10px;
+            border-radius: 4px;
+            text-decoration: none;
+        }
+        .footer {
+            background-color: #521485;
+            color: #ffffff;
+            padding: 20px;
+            text-align: center;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+        .footer a {
+            color: #ffffff;
+            text-decoration: none;
+        }
+        .footer a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="index">
+        <div class="header">
+            <div class="nav-left">
+                <img src="logo.png" alt="Logo">
+                <span class="company-name">EventLanka</span>
+            </div>
+            <div class="nav-right">
+                <a href="#home">Home</a>
+                <a href="#events">Events</a>
+                <a href="#services">Services</a>
+                <a href="#packages">Packages</a>
+                <a href="#about-us">About Us</a>
+                <a href="#contact-us">Contact Us</a>
+                <div class="element-search-input">
+                    <input type="text" placeholder="Search">
+                    <button class="search-button"><i class="fas fa-search"></i></button>
+                </div>
+                <div class="avatar" id="user-avatar">
+                    <i class="fas fa-user"></i>
+                </div>
+            </div>
+            <div class="hamburger-menu" id="hamburger-menu">
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+        </div>
+
+        <div class="content">
+            <h1>Welcome to EventLanka</h1>
+            <p>EventLanka is a premier event management company specializing in creating unforgettable experiences. Our dedicated team ensures every event is tailored to perfection, from intimate gatherings to grand celebrations. With a focus on quality and attention to detail, we bring your visions to life. Join us to experience the best in event planning and execution.</p>
+
+            <h2 id="events">Our Events</h2>
+            <div class="event-grid">
+                <div class="event">
+                    <img src="Images Project/Images Project/Ev1.jpg" alt="Halls">
+                    <div class="description">
+                        <h3>Halls</h3>
+                        <p>We offer a variety of halls suitable for all types of events, ensuring your event is hosted in a space that meets your needs.</p>
+                        <a href="packages.html" class="see-more">See More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                <div class="event">
+                    <img src="Images Project/Images Project/Ch1.jpg" alt="Christian Wedding">
+                    <div class="description">
+                        <h3>Christian Weddings</h3>
+                        <p>Celebrate your special day with our comprehensive Christian wedding services, designed to make your day memorable.</p>
+                        <a href="packages.html" class="see-more">See More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                <div class="event">
+                    <img src="Images Project/Images Project/Ev3.jpg" alt="Hindu Wedding">
+                    <div class="description">
+                        <h3>Hindu Weddings</h3>
+                        <p>Our Hindu wedding services are tailored to honor traditions and create a magical experience for you and your guests.</p>
+                        <a href="packages.html" class="see-more">See More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                <div class="event">
+                    <img src="Images Project/Images Project/ev6.jpg" alt="Muslim Wedding">
+                    <div class="description">
+                        <h3>Muslim Weddings</h3>
+                        <p>We provide complete Muslim wedding packages that ensure your wedding is celebrated in style and tradition.</p>
+                        <a href="packages.html" class="see-more">See More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                <div class="event">
+                    <img src="Images Project/Images Project/ch3.jpg" alt="Buddhist Wedding">
+                    <div class="description">
+                        <h3>Buddhist Weddings</h3>
+                        <p>Our Buddhist wedding services are crafted to provide a serene and beautiful celebration of your union.</p>
+                        <a href="packages.html" class="see-more">See More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                <div class="event">
+                    <img src="Images Project/Images Project/ev2.jpg" alt="Personal Parties">
+                    <div class="description">
+                        <h3>Personal Parties</h3>
+                        <p>From birthdays to anniversaries, we organize personal parties that reflect your style and preferences.</p>
+                        <a href="packages.html" class="see-more">See More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <h2 id="services">Our Services</h2>
+            <div class="service-grid">
+                <div class="service">
+                    <img src="Images Project/Images Project/pp6.png" alt="Decorations">
+                    <div class="description">
+                        <h3>Decorations</h3>
+                        <p>Our event planning services ensure your event is meticulously organized and flawlessly executed.</p>
+                        <a href="packages.html" class="see-more">See More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                <div class="service">
+                    <img src="Images Project/Images Project/pp7.jpg" alt="Catering">
+                    <div class="description">
+                        <h3>Catering</h3>
+                        <p>We offer diverse catering options to suit all tastes, providing delicious food and excellent service.</p>
+                        <a href="packages.html" class="see-more">See More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                <div class="service">
+                    <img src="Images Project/Images Project/ch5.jpg" alt="Photography">
+                    <div class="description">
+                        <h3>Photography</h3>
+                        <p>Our photography services transform your venue into a stunning space that reflects your event's theme and style.</p>
+                        <a href="packages.html" class="see-more">See More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                <div class="service">
+                    <img src="Images Project/Images Project/ch9.png" alt="Videography">
+                    <div class="description">
+                        <h3>Videography</h3>
+                        <p>We provide top-notch entertainment options to keep your guests engaged and entertained throughout the event.</p>
+                        <a href="packages.html" class="see-more">See More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <h2 id="providers">Our Service Providers</h2>
+            <div class="provider-grid">
+                <div class="provider">
+                    <img src="images/provider1.jpg" alt="Provider 1">
+                    <div class="description">
+                        <h3>Jeyapragash</h3>
+                        <p>Expert event planner with over 10 years of experience in creating memorable events tailored to your needs.</p>
+                        <a href="packages.html" class="see-more">See More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                <div class="provider">
+                    <img src="images/provider2.jpg" alt="Provider 2">
+                    <div class="description">
+                        <h3>Yuvashangar</h3>
+                        <p>Renowned caterer known for delicious and diverse menu options that cater to all tastes and dietary needs.</p>
+                        <a href="packages.html" class="see-more">See More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                <div class="provider">
+                    <img src="images/provider3.jpg" alt="Provider 3">
+                    <div class="description">
+                        <h3>Keerthikan</h3>
+                        <p>Creative decorator with a keen eye for detail, transforming venues into stunning spaces for any event.</p>
+                        <a href="packages.html" class="see-more">See More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                <div class="provider">
+                    <img src="images/provider4.jpg" alt="Provider 4">
+                    <div class="description">
+                        <h3>Faiha</h3>
+                        <p>Professional entertainer providing engaging and memorable performances to keep your guests entertained.</p>
+                        <a href="packages.html" class="see-more">See More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer">
+            <h4>About Us</h4>
+            <p>EventLanka is a leading event management company dedicated to creating memorable experiences. Our team of experts is passionate about delivering high-quality events tailored to your needs. Contact us to learn more about our services and how we can help make your next event a success.</p>
+            <h4>Contact Us</h4>
+            <p>Email: info@eventlanka.com</p>
+            <p>Phone: +94 77 123 4567</p>
+            <p>Address: 123 Event Lane, Colombo, Sri Lanka</p>
+        </div>
+    </div>
+
+    <!-- JavaScript to toggle navigation menu on smaller screens -->
+    <script>
+        document.getElementById('hamburger-menu').addEventListener('click', function () {
+            var navRight = document.querySelector('.header .nav-right');
+            navRight.classList.toggle('responsive');
+        });
+    </script>
+</body>
+</html>
