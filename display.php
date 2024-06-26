@@ -31,9 +31,7 @@ and open the template in the editor.
                  die("Connection failed: " . $mysqli->connect_error);
              }
              
-             
-             $result = $mysqli->query("SELECT * FROM $", $resultmode)
-       
+          
         ?>
     </body>
 </html>

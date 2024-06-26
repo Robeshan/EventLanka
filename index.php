@@ -418,13 +418,13 @@ session_start();
                 <div class="login-register-form" id="login-register-form">
                     <div class="login-panel" id="login-panel">
                         <h3>Login</h3>
-                        <form>
-                        <label for="username">Username/Email</label>
-                        <input type="text" id="username" name="username">
-                        <label for="password">Password</label>
-                        <input type="password" id="password" name="password">
-                        <button type="submit" name="submit">Login</button>
-                        </form>
+                        <form action="login.php" method="post" enctype="multipart/form-data">
+                                <label for="username">Username/Email</label>
+                                <input type="text" id="username" name="username" required>
+                                <label for="password">Password</label>
+                                <input type="password" id="password" name="password" required>
+                                <button type="submit" name="submit">Login</button>
+                            </form>
                         <button class="forgot-password" id="forgot-password-button">Forgot Password?</button>
                         <button class="register" id="register-button">Register</button>
                     </div>
