@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Service Provider Dashboard</title>
+    <link rel="stylesheet" href="provider-styles.css">
+    <style>
+        
+body {
+    font-family: 'Roboto', sans-serif;
+    display: flex;
+    margin: 0;
+    padding: 0;
+    background-color: #F7F0ED;
+}
+
+.sidebar {
+    width: 200px;
+    background-color: #2E3A59;
+    color: white;
+    padding: 20px;
+    height: 100vh;
+    position: fixed;
+    
+}
+
+.sidebar h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+}
+
+.sidebar ul li {
+    margin: 20px 0;
+}
+
+.sidebar ul li a {
+    color: white;
+    text-decoration: none;
+    display: block;
+    padding: 10px;
+    border-radius: 4px;
+    background-color: #394867;
+    text-align: center;
+}
+
+.sidebar ul li a:hover {
+    background-color: #1d273d;
+}
+
+.main-content {
+    margin-left: 240px;
+    padding: 20px;
+    width: calc(100% - 240px);
+    box-sizing: border-box;
+}
+
+header {
+    background-color: #ffffff;
+    padding: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.dashboard-overview {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 40px;
+}
+
+.card {
+    background-color: #ffffff;
+    padding: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    width: 30%;
+    text-align: center;
+    border-radius: 8px;
+}
+
+.card h3 {
+    margin-bottom: 10px;
+    color: #2E3A59;
+}
+
+.card p {
+    font-size: 24px;
+    color: #4CAF50;
+}
+
+.profile, .my-services, .notifications, .payments, .reports, .availability {
+    margin-bottom: 40px;
+}
+
+.profile h2, .my-services h2, .notifications h2, .payments h2, .reports h2, .availability h2 {
+    margin-bottom: 20px;
+    color: #2E3A59;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    background-color: #ffffff;
+    padding: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+label {
+    font-weight: bold;
+}
+
+input, textarea, select, button[type="submit"] {
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+button[type="submit"], .modify, .delete {
+    width: 150px;
+    align-self: flex-start;
+    background-color: #2E3A59;
+    color: white;
+}
+
+button[type="submit"]:hover, .modify:hover, .delete:hover {
+    opacity: 0.8;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 40px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    background-color: #ffffff;
+}
+
+th, td {
+    padding: 12px;
+    border: 1px solid #ddd;
+    text-align: left;
+}
+
+th {
+    background-color: #394867;
+    color: white;
+}
+
+td {
+    background-color: #ffffff;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+li {
+    background-color: #ffffff;
+    padding: 10px;
+    margin-bottom: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+.provider-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
+
+canvas {
+    margin-bottom: 40px;
+}
+
+.package {
+    margin-bottom: 20px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    background-color: #f9f9f9;
+}
+
+button[type="button"] {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button[type="button"]:hover {
+    opacity: 0.8;
+}
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="sidebar">
+        <h2>Service Provider Dashboard</h2>
+        <ul>
+            <li><a href="#">Dashboard</a></li>
+            <li><a href="#">Profile</a></li>
+            <li><a href="#">My Services</a></li>
+            <li><a href="#">Notifications</a></li>
+            <li><a href="#">Payments</a></li>
+            <li><a href="#">Reports</a></li>
+            <li><a href="#">Availability</a></li>
+        </ul>
+    </div>
+    <div class="main-content">
+        <header>
+            <h1>Welcome, Service Provider</h1>
+            <a href="User Dashboard.html"> <img src="Images Project/user_Icon.png" alt="User Avatar"></a>
+        </header>
+
+        <section class="dashboard-overview">
+            <h2>Dashboard Overview</h2>
+            <div class="card">
+                <h3>Total Services</h3>
+                <p>50</p>
+            </div>
+            <div class="card">
+                <h3>Total Bookings</h3>
+                <p>120</p>
+            </div>
+            <div class="card">
+                <h3>Total Income</h3>
+                <p>$5000</p>
+            </div>
+        </section>
+
+        <section class="profile">
+            <h2>My Profile</h2>
+            <form id="profileForm">
+                <label for="profilePicture">Profile Picture:</label>
+                <input type="file" id="profilePicture" name="profilePicture">
+                <label for="providerName">Name:</label>
+                <input type="text" id="providerName" name="providerName" value="Event Catering">
+                <label for="providerEmail">Email:</label>
+                <input type="email" id="providerEmail" name="providerEmail" value="catering@example.com">
+                <button type="submit">Update Profile</button>
+            </form>
+        </section>
+
+        <section class="my-services">
+            <h2>My Services</h2>
+            <form id="serviceForm">
+                <label for="serviceName">Service Name:</label>
+                <input type="text" id="serviceName" name="serviceName">
+                <label for="serviceDescription">Description:</label>
+                <textarea id="serviceDescription" name="serviceDescription" rows="4" cols="50"></textarea>
+                <label for="servicePackages">Packages:</label>
+                <div id="packagesContainer">
+                    <div class="package">
+                        <label for="packageName">Package Name:</label>
+                        <input type="text" name="packageName" class="packageName">
+                        <label for="packageDetails">Details:</label>
+                        <textarea name="packageDetails" class="packageDetails" rows="2"></textarea>
+                        <label for="packagePrice">Price:</label>
+                        <input type="number" name="packagePrice" class="packagePrice">
+                    </div>
+                </div>
+                <button type="button" onclick="addPackage()">Add Another Package</button>
+                <button type="submit">Upload Service</button>
+            </form>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Service</th>
+                        <th>Description</th>
+                        <th>Packages</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Wedding Catering</td>
+                        <td>High-quality catering for weddings</td>
+                        <td>
+                            <ul>
+                                <li>Gold Package: $2000 - Includes premium services</li>
+                                <li>Silver Package: $1500 - Includes basic services</li>
+                            </ul>
+                        </td>
+                        <td>
+                            <button class="modify">Modify</button>
+                            <button class="delete">Delete</button>
+                        </td>
+                    </tr>
+                    <!-- More rows as needed -->
+                </tbody>
+            </table>
+        </section>
+
+        <section class="notifications">
+            <h2>Notifications</h2>
+            <ul>
+                <li>Notification 1: New booking for Wedding Catering on 2023-07-12</li>
+                <li>Notification 2: Admin approved your new service</li>
+                <!-- More notifications as needed -->
+            </ul>
+        </section>
+
+        <section class="payments">
+            <h2>Payments</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Order Count</th>
+                        <th>Completed Orders</th>
+                        <th>Pending Orders</th>
+                        <th>Amount Paid</th>
+                        <th>Pending Amount</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>20</td>
+                        <td>15</td>
+                        <td>5</td>
+                        <td>$3000</td>
+                        <td>$2000</td>
+                    </tr>
+                    <!-- More rows as needed -->
+                </tbody>
+            </table>
+        </section>
+
+        <section class="reports">
+            <h2>Reports</h2>
+            <canvas id="incomeChart" width="400" height="200"></canvas>
+            <canvas id="serviceChart" width="400" height="200"></canvas>
+        </section>
+
+        <section class="availability">
+            <h2>Availability</h2>
+            <form id="availabilityForm">
+                <label for="availabilityDate">Date:</label>
+                <input type="date" id="availabilityDate" name="availabilityDate">
+                <label for="availabilityStatus">Status:</label>
+                <select id="availabilityStatus" name="availabilityStatus">
+                    <option value="available">Available</option>
+                    <option value="unavailable">Unavailable</option>
+                </select>
+                <button type="submit">Update Availability</button>
+            </form>
+        </section>
+    </div>
+    <script>
+        document.getElementById('profileForm').addEventListener('submit', function(event) {
+    event.preventDefault();
+    alert('Profile Updated');
+});
+
+document.getElementById('serviceForm').addEventListener('submit', function(event) {
+    event.preventDefault();
+    alert('Service Uploaded');
+});
+
+document.querySelectorAll('.modify').forEach(button => {
+    button.addEventListener('click', () => {
+        alert('Modify Service');
+    });
+});
+
+document.querySelectorAll('.delete').forEach(button => {
+    button.addEventListener('click', () => {
+        alert('Delete Service');
+    });
+});
+
+document.getElementById('availabilityForm').addEventListener('submit', function(event) {
+    event.preventDefault();
+    alert('Availability Updated');
+});
+
+// Chart.js for reports
+var ctx1 = document.getElementById('incomeChart').getContext('2d');
+var incomeChart = new Chart(ctx1, {
+    type: 'bar',
+    data: {
+        labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+        datasets: [{
+            label: 'Income',
+            data: [1200, 1900, 3000, 500, 2000, 3000, 4500],
+            backgroundColor: 'rgba(75, 192, 192, 0.2)',
+            borderColor: 'rgba(75, 192, 192, 1)',
+            borderWidth: 1
+        }]
+    },
+    options: {
+        scales: {
+            y: {
+                beginAtZero: true
+            }
+        }
+    }
+});
+
+var ctx2 = document.getElementById('serviceChart').getContext('2d');
+var serviceChart = new Chart(ctx2, {
+    type: 'pie',
+    data: {
+        labels: ['Wedding Catering', 'DJ Services', 'Event Planning', 'Decoration Services'],
+        datasets: [{
+            label: 'Services',
+            data: [10, 15, 5, 7],
+            backgroundColor: [
+                'rgba(255, 99, 132, 0.2)',
+                'rgba(54, 162, 235, 0.2)',
+                'rgba(255, 206, 86, 0.2)',
+                'rgba(75, 192, 192, 0.2)'
+            ],
+            borderColor: [
+                'rgba(255, 99, 132, 1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(255, 206, 86, 1)',
+                'rgba(75, 192, 192, 1)'
+            ],
+            borderWidth: 1
+        }]
+    },
+    options: {
+        responsive: true,
+        plugins: {
+            legend: {
+                position: 'top',
+            },
+        }
+    }
+});
+
+    </script>
+</body>
+</html>
+
+
+
+
+
+
+

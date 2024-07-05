@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="admin-styles.css">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            display: flex;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+        }
+
+        .sidebar {
+            width: 200px;
+            background-color: #2E3A59;
+            color: white;
+            padding: 20px;
+            height: 100vh;
+            position: fixed;
+        }
+
+        .sidebar h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .sidebar ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .sidebar ul li {
+            margin: 20px 0;
+        }
+
+        .sidebar ul li a {
+            color: white;
+            text-decoration: none;
+            display: block;
+            padding: 10px;
+            border-radius: 4px;
+            background-color: #394867;
+            text-align: center;
+        }
+
+        .sidebar ul li a:hover {
+            background-color: #1d273d;
+        }
+
+        .main-content {
+            margin-left: 240px;
+            padding: 20px;
+            width: calc(100% - 240px);
+            box-sizing: border-box;
+        }
+
+        header {
+            background-color: #ffffff;
+            padding: 20px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .section {
+            margin-bottom: 40px;
+        }
+
+        .section h2 {
+            margin-bottom: 20px;
+            color: #2E3A59;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 40px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            background-color: #ffffff;
+        }
+
+        th, td {
+            padding: 12px;
+            border: 1px solid #ddd;
+            text-align: left;
+        }
+
+        th {
+            background-color: #394867;
+            color: white;
+        }
+
+        td {
+            background-color: #ffffff;
+        }
+
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            opacity: 0.8;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            background-color: #ffffff;
+            padding: 20px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+
+        label {
+            font-weight: bold;
+        }
+
+        input, textarea, select {
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+    <div class="sidebar">
+        <h2>Admin Dashboard</h2>
+        <ul>
+            <li><a href="#">Dashboard</a></li>
+            <li><a href="#">User Management</a></li>
+            <li><a href="#">Event Management</a></li>
+            <li><a href="#">Service Providers</a></li>
+            <li><a href="#">Payments</a></li>
+            <li><a href="#">Packages</a></li>
+            <li><a href="#">Website Content</a></li>
+            <li><a href="#">Notifications</a></li>
+            <li><a href="#">Admin Profile</a></li>
+        </ul>
+    </div>
+    <div class="main-content">
+        <header>
+            <h1>Welcome, Admin</h1>
+        </header>
+
+        <section class="section">
+            <h2>Dashboard Overview</h2>
+            <p>Total Users: 1500</p>
+            <p>Total Events: 120</p>
+            <p>Pending Approvals: 10</p>
+        </section>
+
+        <section class="section">
+            <h2>User Management</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Profile Image</th>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Status</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><img src="user-avatar.png" alt="User Avatar" width="40"></td>
+                        <td>John Doe</td>
+                        <td>john@example.com</td>
+                        <td>Active</td>
+                        <td>
+                            <button>Block</button>
+                            <button>Approve</button>
+                            <button>Reject</button>
+                        </td>
+                    </tr>
+                    <!-- More rows as needed -->
+                </tbody>
+            </table>
+        </section>
+
+        <section class="section">
+            <h2>Service Provider Management</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Profile Image</th>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Type</th>
+                        <th>Status</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><img src="provider-avatar.png" alt="Provider Avatar" width="40"></td>
+                        <td>Event Catering</td>
+                        <td>catering@example.com</td>
+                        <td>Catering</td>
+                        <td>Pending</td>
+                        <td>
+                            <button>Verify</button>
+                            <button>Block</button>
+                        </td>
+                    </tr>
+                    <!-- More rows as needed -->
+                </tbody>
+            </table>
+        </section>
+
+        <section class="section">
+            <h2>Service Provider Post Verification</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Post Image</th>
+                        <th>Title</th>
+                        <th>Description</th>
+                        <th>Price</th>
+                        <th>Status</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><img src="post-image.png" alt="Post Image" width="40"></td>
+                        <td>Wedding Catering</td>
+                        <td>High-quality wedding catering services</td>
+                        <td>$100,000</td>
+                        <td>Pending</td>
+                        <td>
+                            <button>Approve</button>
+                            <button>Reject</button>
+                        </td>
+                    </tr>
+                    <!-- More rows as needed -->
+                </tbody>
+            </table>
+        </section>
+
+        <section class="section">
+            <h2>Payment Management</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>User</th>
+                        <th>Event</th>
+                        <th>Advance Payment</th>
+                        <th>Balance Payment</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>John Doe</td>
+                        <td>Wedding</td>
+                        <td>$40,000</td>
+                        <td>$60,000</td>
+                        <td>
+                            <button>Check Payment</button>
+                            <button>Send Notification</button>
+                        </td>
+                    </tr>
+                    <!-- More rows as needed -->
+                </tbody>
+            </table>
+        </section>
+
+        <section class="section">
+            <h2>Package Management</h2>
+            <form>
+                <label for="packageSelect">Select Package:</label>
+                <select id="packageSelect">
+                    <option value="wedding">Wedding Package</option>
+                    <!-- More options as needed -->
+                </select>
+
+                <label for="packageDetails">Update Details:</label>
+                <textarea id="packageDetails" rows="4"></textarea>
+
+                <label for="serviceProviders">Link Service Providers:</label>
+                <select id="serviceProviders">
+                    <option value="catering">Event Catering</option>
+                    <!-- More options as needed -->
+                </select>
+
+                <label for="packagePrice">Package Price:</label>
+                <input type="number" id="packagePrice">
+
+                <button type="submit">Update Package</button>
+            </form>
+        </section>
+
+        <section class="section">
+            <h2>Website Content Management</h2>
+            <form>
+                <label for="imageUpload">Upload Image:</label>
+                <input type="file" id="imageUpload">
+
+                <label for="details">Details:</label>
+                <textarea id="details" rows="4"></textarea>
+
+                <label for="pageSelect">Select Page:</label>
+                <select id="pageSelect">
+                    <option value="home">Home</option>
+                    <!-- More options as needed -->
+                </select>
+
+                <label for="placeType">Place Type:</label>
+                <select id="placeType">
+                    <option value="hall">Hall</option>
+                    <!-- More options as needed -->
+                </select>
+
+                <button type="submit">Submit</button>
+            </form>
+        </section>
+    </div>
+    <script>
+        document.querySelectorAll('form').forEach(form => {
+    form.addEventListener('submit', function(event) {
+        event.preventDefault();
+        alert('Form Submitted');
+    });
+});
+
+    </script>
+</body>
+</html>
