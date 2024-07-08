@@ -10,417 +10,277 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>EventLanka</title>
     <link rel="stylesheet" href="style.css">
-    </head>
-    <body>
-        <!-- header section starts -->
-       <!-- header section starts -->
-           <!-- header section starts -->
-        <header class="header">
-            <div class="logo">
-                <img src="Images Project/1.png" alt="EventLanka Logo">
-                <a href="#">EventLanka</a>
-            </div>
-            <nav class="navbar">
-                <a href="index.html">home</a>
-                <a href="events.html">events</a>
-                <a href="services.html">services</a>
-                <a href="package.html">packages</a>
-                <a href="review.html">reviews</a>
-                <a href="about us.html">about us</a>
-                <a href="contact us.html">contact us</a>
-            </nav>
-            <div class="search-container">
+</head>
+<body>
+    <!-- header section starts -->
+    <header class="header">
+        <div class="logo">
+            <img src="Images Project/1.png" alt="EventLanka Logo">
+            <a href="#">EventLanka</a>
+        </div>
+        <nav class="navbar">
+            <a href="index.html">home</a>
+            <a href="events.html">events</a>
+            <a href="services.html">services</a>
+            <a href="package.html">packages</a>
+            <a href="review.html">reviews</a>
+            <a href="about us.html">about us</a>
+            <a href="contact us.html">contact us</a>
+        </nav>
+        <div class="search-container">
             <input type="text" placeholder="Search...">
             <button><i class="bi bi-search"></i></button>
-             </div>
-            <div class="icons">
-                <div class="user-avatar" id="userAvatar">
-                    <img src="Images Project/Service Providers/user_Icon.png" alt="User Avatar">
-                </div>
-                <div class="fas fa-bars" id="menu"></div>
+        </div>
+        <div class="icons">
+            <div class="user-avatar" id="userAvatar">
+                <img src="Images Project/Service Providers/user_Icon.png" alt="User Avatar">
             </div>
-        </header>
+            <div class="fas fa-bars" id="menu"></div>
+        </div>
+    </header>
 
-        <div class="overlay" id="overlay"></div>
-        <div class="login-form" id="loginForm">
-            <h2>Log In</h2>
-            <div class="login__group">
-                <div>
-                    <label for="login-email" class="login__label">Username/Email</label>
-                    <input type="email" placeholder="Write your email" id="login-email" class="login__input">
-                </div>
-                <div>
-                    <label for="login-password" class="login__label">Password</label>
-                    <input type="password" placeholder="Enter your password" id="login-password" class="login__input">
-                </div>
+    <div class="overlay" id="overlay"></div>
+    <div class="login-form" id="loginForm">
+        <h2>Log In</h2>
+        <div class="login__group">
+            <div>
+                <label for="login-email" class="login__label">Username/Email</label>
+                <input type="email" placeholder="Write your email" id="login-email" class="login__input">
             </div>
             <div>
-                <p class="login__signup">
-                    You do not have an account? <a href="#" id="showRegister">Sign up</a>
-                </p>
-                <a href="#" class="login__forgot" id="showForgotPassword">
-                    You forgot your password
-                </a>
-                <button type="submit" class="login__button">Log In</button>
+                <label for="login-password" class="login__label">Password</label>
+                <input type="password" placeholder="Enter your password" id="login-password" class="login__input">
             </div>
         </div>
-
-        <div class="register-form" id="registerForm">
-            <h2>Register</h2>
-            <div class="register__group">
-                <div class="register__group-row">
-                    <div>
-                        <label for="register-name" class="register__label">Name</label>
-                        <input type="text" placeholder="Enter your name" id="register-name" class="register__input">
-                    </div>
-                    <div>
-                        <label for="register-email" class="register__label">Email</label>
-                        <input type="email" placeholder="Enter your email" id="register-email" class="register__input">
-                    </div>
-                    <div>
-                        <label for="register-phone" class="register__label">Phone Number</label>
-                        <input type="text" placeholder="Enter your phone number" id="register-phone" class="register__input">
-                    </div>
-                </div>
-                <div class="register__group-row">
-                    <div>
-                        <label for="register-username" class="register__label">Username</label>
-                        <input type="text" placeholder="Enter your username" id="register-username" class="register__input">
-                    </div>
-                    <div>
-                        <label for="register-nic" class="register__label">NIC Number</label>
-                        <input type="text" placeholder="Enter your NIC number" id="register-nic" class="register__input">
-                    </div>
-                    <div>
-                        <label for="register-address" class="register__label">Address</label>
-                        <input type="text" placeholder="Enter your address" id="register-address" class="register__input">
-                    </div>
-                </div>
-                <div class="register__group-row">
-                    <div>
-                        <label for="register-nic-front" class="register__label">NIC Front Photo</label>
-                        <input type="file" id="register-nic-front" class="register__input">
-                    </div>
-                    <div>
-                        <label for="register-nic-back" class="register__label">NIC Back Photo</label>
-                        <input type="file" id="register-nic-back" class="register__input">
-                    </div>
-                </div>
-                <div class="register__group-row">
-                    <div>
-                        <label for="register-password" class="register__label">Password</label>
-                        <input type="password" placeholder="Enter your password" id="register-password" class="register__input">
-                    </div>
-                    <div>
-                        <label for="register-confirm-password" class="register__label">Confirm Password</label>
-                        <input type="password" placeholder="Confirm your password" id="register-confirm-password" class="register__input">
-                    </div>
-                </div>
-                <div class="terms">
-                    <input type="checkbox" id="terms-checkbox">
-                    <label for="terms-checkbox">I agree to the <a href="#" id="showTerms">terms and conditions</a></label>
-                </div>
-            </div>
-            <div>
-                <button type="submit" class="register__button">Register</button>
-                <a href="#" id="showLogin" class="back-to-login">Already have an account? Log In</a>
-            </div>
+        <div>
+            <p class="login__signup">
+                You do not have an account? <a href="#" id="showRegister">Sign up</a>
+            </p>
+            <a href="#" class="login__forgot" id="showForgotPassword">
+                You forgot your password
+            </a>
+            <button type="submit" class="login__button">Log In</button>
         </div>
+    </div>
 
-        <div class="forgot-password-form" id="forgotPasswordForm">
-            <h2>Forgot Password</h2>
-            <div class="forgot-password__group">
+    <div class="register-form" id="registerForm">
+        <h2>Register</h2>
+        <div class="register__group">
+            <div class="register__group-row">
                 <div>
-                    <label for="forgot-email" class="forgot-password__label">Email</label>
-                    <input type="email" placeholder="Enter your email" id="forgot-email" class="forgot-password__input">
+                    <label for="register-name" class="register__label">Name</label>
+                    <input type="text" placeholder="Enter your name" id="register-name" class="register__input">
+                </div>
+                <div>
+                    <label for="register-email" class="register__label">Email</label>
+                    <input type="email" placeholder="Enter your email" id="register-email" class="register__input">
+                </div>
+                <div>
+                    <label for="register-phone" class="register__label">Phone Number</label>
+                    <input type="text" placeholder="Enter your phone number" id="register-phone" class="register__input">
                 </div>
             </div>
+            <div class="register__group-row">
+                <div>
+                    <label for="register-username" class="register__label">Username</label>
+                    <input type="text" placeholder="Enter your username" id="register-username" class="register__input">
+                </div>
+                <div>
+                    <label for="register-nic" class="register__label">NIC Number</label>
+                    <input type="text" placeholder="Enter your NIC number" id="register-nic" class="register__input">
+                </div>
+                <div>
+                    <label for="register-address" class="register__label">Address</label>
+                    <input type="text" placeholder="Enter your address" id="register-address" class="register__input">
+                </div>
+            </div>
+            <div class="register__group-row">
+                <div>
+                    <label for="register-nic-front" class="register__label">NIC Front Photo</label>
+                    <input type="file" id="register-nic-front" class="register__input">
+                </div>
+                <div>
+                    <label for="register-nic-back" class="register__label">NIC Back Photo</label>
+                    <input type="file" id="register-nic-back" class="register__input">
+                </div>
+            </div>
+            <div class="register__group-row">
+                <div>
+                    <label for="register-password" class="register__label">Password</label>
+                    <input type="password" placeholder="Enter your password" id="register-password" class="register__input">
+                </div>
+                <div>
+                    <label for="register-confirm-password" class="register__label">Confirm Password</label>
+                    <input type="password" placeholder="Confirm your password" id="register-confirm-password" class="register__input">
+                </div>
+            </div>
+            <div class="terms">
+                <input type="checkbox" id="terms-checkbox">
+                <label for="terms-checkbox">I agree to the <a href="#" id="showTerms">terms and conditions</a></label>
+            </div>
+        </div>
+        <div>
+            <button type="submit" class="register__button">Register</button>
+            <a href="#" id="showLogin" class="back-to-login">Already have an account? Log In</a>
+        </div>
+    </div>
+
+    <div class="forgot-password-form" id="forgotPasswordForm">
+        <h2>Forgot Password</h2>
+        <div class="forgot-password__group">
             <div>
-                <button type="submit" class="forgot-password__button">Send Verification</button>
-                <a href="#" id="showLoginFromForgot" class="back-to-login">Back to Login</a>
+                <label for="forgot-email" class="forgot-password__label">Email</label>
+                <input type="email" placeholder="Enter your email" id="forgot-email" class="forgot-password__input">
             </div>
         </div>
+        <div>
+            <button type="submit" class="forgot-password__button">Send Verification</button>
+            <a href="#" id="showLoginFromForgot" class="back-to-login">Back to Login</a>
+        </div>
+    </div>
 
-        <!-- Terms and Conditions Modal -->
-        <div class="modal fade" id="termsModal" tabindex="-1" aria-labelledby="termsModalLabel" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="termsModalLabel">Terms and Conditions</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-                        <p>Your terms and conditions content goes here...</p>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    </div>
+    <!-- Terms and Conditions Modal -->
+    <div class="modal fade" id="termsModal" tabindex="-1" aria-labelledby="termsModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="termsModalLabel">Terms and Conditions</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p>Your terms and conditions content goes here...</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                 </div>
             </div>
         </div>
+    </div>
 
-        <!-- sesion start-->
-        <section class="services">
-         <h2 class="heading">Services</h2>
-            <div class="filters">
-                <input type="text" placeholder="Select Category">
-                <input type="text" placeholder="Filter By">
-                <input type="text" placeholder="Sort By">
-                <input type="text" placeholder="Enter Keyword">
-            </div>
-            <br>
-            <br>
-        <!-- Catering -->
-        <div class="service-container">
-            <div class="service-image">
-                <img src="Images Project/Catering.jpeg" alt="Catering">
-                <h3>Catering</h3>
-                <ul>
-                    <li>Customizable Packages</li>
-                    <li>Customizable Packages</li>
-                    <li>Customizable Packages</li>
-                    <li>Customizable Packages</li>
-                </ul>
-            </div>
-            <div class="service-details">
-                <h3>Catering</h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam id urna quis quam blandit ullamcorper. Nunc auctor nisi vel risus tristique, non consectetur velit tincidunt. Duis commodo velit id tortor vestibulum, nec posuere justo eleifend. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Proin non justo nec libero blandit fermentum nec non justo. Suspendisse potenti. Sed quis nisl ac nisi pellentesque congue. Sed sollicitudin orci nec erat consequat, nec pharetra tortor pharetra.</p>
-                <a href="#" class="btn">Book Now</a>
-            </div>
-        </div>
+    <br><br><br>
 
-        <!-- Photography -->
-        <div class="service-container">
-            <div class="service-details">
-                <h3>Photography</h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam id urna quis quam blandit ullamcorper. Nunc auctor nisi vel risus tristique, non consectetur velit tincidunt. Duis commodo velit id tortor vestibulum, nec posuere justo eleifend. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Proin non justo nec libero blandit fermentum nec non justo. Suspendisse potenti. Sed quis nisl ac nisi pellentesque congue. Sed sollicitudin orci nec erat consequat, nec pharetra tortor pharetra.</p>
-                <a href="#" class="btn">Book Now</a>
-            </div>
-            <div class="service-image">
-                <img src="Images Project/photography.jpg" alt="Photography">
-                <h3>Photography</h3>
-                <ul>
-                    <li>Customizable Packages</li>
-                    <li>Customizable Packages</li>
-                    <li>Customizable Packages</li>
-                    <li>Customizable Packages</li>
-                </ul>
-            </div>
+    <!-- Services Section -->
+    <section class="services" id="services">
+        <h1 class="heading">Our Services</h1>
+        <div class="service">
+            <h3>Service Name</h3>
+            <p>Description of the service goes here...</p>
         </div>
-
-        <!-- Videography -->
-        <div class="service-container">
-            <div class="service-image">
-                <img src="Images Project/video1.jpg" alt="Videography">
-                <h3>Videography</h3>
-                <ul>
-                    <li>Customizable Packages</li>
-                    <li>Customizable Packages</li>
-                    <li>Customizable Packages</li>
-                    <li>Customizable Packages</li>
-                </ul>
-            </div>
-            <div class="service-details">
-                <h3>Videography</h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam id urna quis quam blandit ullamcorper. Nunc auctor nisi vel risus tristique, non consectetur velit tincidunt. Duis commodo velit id tortor vestibulum, nec posuere justo eleifend. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Proin non justo nec libero blandit fermentum nec non justo. Suspendisse potenti. Sed quis nisl ac nisi pellentesque congue. Sed sollicitudin orci nec erat consequat, nec pharetra tortor pharetra.</p>
-                <a href="#" class="btn">Book Now</a>
-            </div>
+        <div class="service">
+            <h3>Service Name</h3>
+            <p>Description of the service goes here...</p>
         </div>
-
-        <div class="service-container">
-            <div class="service-details">
-                <h3>Decorations</h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam id urna quis quam blandit ullamcorper. Nunc auctor nisi vel risus tristique, non consectetur velit tincidunt. Duis commodo velit id tortor vestibulum, nec posuere justo eleifend. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Proin non justo nec libero blandit fermentum nec non justo. Suspendisse potenti. Sed quis nisl ac nisi pellentesque congue. Sed sollicitudin orci nec erat consequat, nec pharetra tortor pharetra.</p>
-                <a href="#" class="btn">Book Now</a>
-            </div>
-            <div class="service-image">
-                <img src="Images Project/Decoration.jpg" alt="Decorations">
-                <h3>Decorations</h3>
-                <ul>
-                    <li>Customizable Packages</li>
-                    <li>Customizable Packages</li>
-                    <li>Customizable Packages</li>
-                    <li>Customizable Packages</li>
-                </ul>
-            </div>
-        </div>
-         <!-- Costume & Makeup -->
-        <div class="service-container">
-            <div class="service-image">
-                <img src="Images Project/Makeup.jpg" alt="Costume & Makeup">
-                <h3>Costume & Makeup</h3>
-                <ul>
-                    <li>Customizable Packages</li>
-                    <li>Customizable Packages</li>
-                    <li>Customizable Packages</li>
-                    <li>Customizable Packages</li>
-                </ul>
-            </div>
-            <div class="service-details">
-                <h3>Costume & Makeup</h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam id urna quis quam blandit ullamcorper. Nunc auctor nisi vel risus tristique, non consectetur velit tincidunt. Duis commodo velit id tortor vestibulum, nec posuere justo eleifend. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Proin non justo nec libero blandit fermentum nec non justo. Suspendisse potenti. Sed quis nisl ac nisi pellentesque congue. Sed sollicitudin orci nec erat consequat, nec pharetra tortor pharetra.</p>
-                <a href="#" class="btn">Book Now</a>
-            </div>
-        </div>
-
-        <div class="service-container">
-            <div class="service-details">
-                <h3>Vehicle Hire</h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam id urna quis quam blandit ullamcorper. Nunc auctor nisi vel risus tristique, non consectetur velit tincidunt. Duis commodo velit id tortor vestibulum, nec posuere justo eleifend. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Proin non justo nec libero blandit fermentum nec non justo. Suspendisse potenti. Sed quis nisl ac nisi pellentesque congue. Sed sollicitudin orci nec erat consequat, nec pharetra tortor pharetra.</p>
-                <a href="#" class="btn">Book Now</a>
-            </div>
-            <div class="service-image">
-                <img src="Images Project/Vehicle Hire.png" alt="Vehicle Hire">
-                <h3>Vehicle Hire</h3>
-                <ul>
-                    <li>Customizable Packages</li>
-                    <li>Customizable Packages</li>
-                    <li>Customizable Packages</li>
-                    <li>Customizable Packages</li>
-                </ul>
-            </div>
-        </div>
+        <!-- Add more services as needed -->
     </section>
-        <!--end-->
 
-
-        <!-- contact section starts  -->
-        <section class="contact" id="contact">
-            <h1 class="heading"><span>contact</span> us</h1>
-
-            <form action="">
-                <div class="inputBox">
-                    <input type="text" placeholder="name">
-                    <input type="email" placeholder="email">
-                </div>
-
-                <div class="inputBox">
-                    <input type="number" placeholder="number">
-                    <input type="text" placeholder="subject">
-                </div>
-
-                <textarea placeholder="message" name="" id="" cols="30" rows="10"></textarea>
-
-                <a href="#" class="btn"> Send Message</a>
-            </form>
-        </section>
-        <!-- contact section ends -->
-
-        <!-- footer section starts  -->
-        <section class="footer">
-            <div class="box-container">
-                <div class="box">
-                    <h3>quick links</h3>
-                    <a href="index.html"> <i class="fas fa-chevron-right"></i> home </a>
-                    <a href="services.html"> <i class="fas fa-chevron-right"></i> services </a>
-                    <a href="about.html"> <i class="fas fa-chevron-right"></i> about </a>
-                    <a href="packages.html"> <i class="fas fa-chevron-right"></i> packages </a>
-                    <a href="contact.html"> <i class="fas fa-chevron-right"></i> contact </a>
-                </div>
-
-                <div class="box">
-                    <h3>extra links</h3>
-                    <a href="#"> <i class="fas fa-chevron-right"></i> plan wedding </a>
-                    <a href="#"> <i class="fas fa-chevron-right"></i> our services </a>
-                    <a href="#"> <i class="fas fa-chevron-right"></i> ask questions </a>
-                    <a href="#"> <i class="fas fa-chevron-right"></i> terms of use </a>
-                    <a href="#"> <i class="fas fa-chevron-right"></i> privacy policy </a>
-                </div>
-
-                <div class="box">
-                    <h3>contact info</h3>
-                    <p> <i class="fas fa-phone"></i> +123-456-7890 </p>
-                    <p> <i class="fas fa-phone"></i> +111-222-3333 </p>
-                    <p> <i class="fas fa-envelope"></i> eventlanka@gmail.com </p>
-                    <p> <i class="fas fa-map"></i> Badulla, sri lanka - 90000 </p>
-                </div>
-
-                <div class="box">
-                    <h3>follow us</h3>
-                    <a href="#"> <i class="fab fa-facebook-f"></i> facebook </a>
-                    <a href="#"> <i class="fab fa-twitter"></i> twitter </a>
-                    <a href="#"> <i class="fab fa-instagram"></i> instagram </a>
-                    <a href="#"> <i class="fab fa-linkedin"></i> linkedin </a>
-                </div>
-
+    <!-- footer section starts  -->
+    <section class="footer">
+        <div class="box-container">
+            <div class="box">
+                <h3>quick links</h3>
+                <a href="index.html"> <i class="fas fa-chevron-right"></i> home </a>
+                <a href="services.html"> <i class="fas fa-chevron-right"></i> services </a>
+                <a href="about.html"> <i class="fas fa-chevron-right"></i> about </a>
+                <a href="packages.html"> <i class="fas fa-chevron-right"></i> packages </a>
+                <a href="contact.html"> <i class="fas fa-chevron-right"></i> contact </a>
             </div>
 
-            <div class="credit"> created by <span>EventLanka team</span> | all rights reserved </div>
+            <div class="box">
+                <h3>extra links</h3>
+                <a href="#"> <i class="fas fa-chevron-right"></i> plan wedding </a>
+                <a href="#"> <i class="fas fa-chevron-right"></i> our services </a>
+                <a href="#"> <i class="fas fa-chevron-right"></i> ask questions </a>
+                <a href="#"> <i class="fas fa-chevron-right"></i> terms of use </a>
+                <a href="#"> <i class="fas fa-chevron-right"></i> privacy policy </a>
+            </div>
 
-        </section>
-        <!-- footer section ends -->
+            <div class="box">
+                <h3>contact info</h3>
+                <p> <i class="fas fa-phone"></i> +123-456-7890 </p>
+                <p> <i class="fas fa-phone"></i> +111-222-3333 </p>
+                <p> <i class="fas fa-envelope"></i> eventlanka@gmail.com </p>
+                <p> <i class="fas fa-map"></i> Badulla, sri lanka - 90000 </p>
+            </div>
 
-        <script>
-            let navbar = document.querySelector('.header .navbar');
-            let menuBtn = document.querySelector('#menu');
-            let userAvatar = document.querySelector('#userAvatar');
-            let overlay = document.querySelector('#overlay');
-            let loginForm = document.querySelector('#loginForm');
-            let registerForm = document.querySelector('#registerForm');
-            let forgotPasswordForm = document.querySelector('#forgotPasswordForm');
-            let showRegister = document.querySelector('#showRegister');
-            let showLogin = document.querySelector('#showLogin');
-            let showForgotPassword = document.querySelector('#showForgotPassword');
-            let showLoginFromForgot = document.querySelector('#showLoginFromForgot');
-            let showTerms = document.querySelector('#showTerms');
+            <div class="box">
+                <h3>follow us</h3>
+                <a href="#"> <i class="fab fa-facebook-f"></i> facebook </a>
+                <a href="#"> <i class="fab fa-twitter"></i> twitter </a>
+                <a href="#"> <i class="fab fa-instagram"></i> instagram </a>
+                <a href="#"> <i class="fab fa-linkedin"></i> linkedin </a>
+            </div>
+        </div>
+        <div class="credit"> created by <span>EventLanka team</span> | all rights reserved </div>
+    </section>
+    <!-- footer section ends -->
 
-            menuBtn.onclick = () => {
-                menuBtn.classList.toggle('fa-times');
-                navbar.classList.toggle('active');
-            };
+    <script>
+        let navbar = document.querySelector('.header .navbar');
+        let menuBtn = document.querySelector('#menu');
+        let userAvatar = document.querySelector('#userAvatar');
+        let overlay = document.querySelector('#overlay');
+        let loginForm = document.querySelector('#loginForm');
+        let registerForm = document.querySelector('#registerForm');
+        let forgotPasswordForm = document.querySelector('#forgotPasswordForm');
+        let showRegister = document.querySelector('#showRegister');
+        let showLogin = document.querySelector('#showLogin');
+        let showForgotPassword = document.querySelector('#showForgotPassword');
+        let showLoginFromForgot = document.querySelector('#showLoginFromForgot');
+        let showTerms = document.querySelector('#showTerms');
 
-            userAvatar.onclick = () => {
-                overlay.classList.toggle('active');
-                loginForm.classList.toggle('active');
-            };
+        menuBtn.onclick = () => {
+            menuBtn.classList.toggle('fa-times');
+            navbar.classList.toggle('active');
+        };
 
-            overlay.onclick = () => {
-                overlay.classList.remove('active');
-                loginForm.classList.remove('active');
-                registerForm.classList.remove('active');
-                forgotPasswordForm.classList.remove('active');
-            };
+        userAvatar.onclick = () => {
+            overlay.classList.toggle('active');
+            loginForm.classList.toggle('active');
+        };
 
-            showRegister.onclick = (e) => {
-                e.preventDefault();
-                loginForm.classList.remove('active');
-                registerForm.classList.add('active');
-                registerForm.style.maxWidth = "800px";
-            };
+        overlay.onclick = () => {
+            overlay.classList.remove('active');
+            loginForm.classList.remove('active');
+            registerForm.classList.remove('active');
+            forgotPasswordForm.classList.remove('active');
+        };
 
-            showLogin.onclick = (e) => {
-                e.preventDefault();
-                registerForm.classList.remove('active');
-                forgotPasswordForm.classList.remove('active');
-                loginForm.classList.add('active');
-                registerForm.style.maxWidth = "500px";
-            };
+        showRegister.onclick = (e) => {
+            e.preventDefault();
+            loginForm.classList.remove('active');
+            registerForm.classList.add('active');
+            registerForm.style.maxWidth = "800px";
+        };
 
-            showForgotPassword.onclick = (e) => {
-                e.preventDefault();
-                loginForm.classList.remove('active');
-                forgotPasswordForm.classList.add('active');
-            };
+        showLogin.onclick = (e) => {
+            e.preventDefault();
+            registerForm.classList.remove('active');
+            forgotPasswordForm.classList.remove('active');
+            loginForm.classList.add('active');
+            registerForm.style.maxWidth = "500px";
+        };
 
-            showLoginFromForgot.onclick = (e) => {
-                e.preventDefault();
-                forgotPasswordForm.classList.remove('active');
-                loginForm.classList.add('active');
-            };
+        showForgotPassword.onclick = (e) => {
+            e.preventDefault();
+            loginForm.classList.remove('active');
+            forgotPasswordForm.classList.add('active');
+        };
 
-            showTerms.onclick = (e) => {
-                e.preventDefault();
-                new bootstrap.Modal(document.getElementById('termsModal')).show();
-            };
+        showLoginFromForgot.onclick = (e) => {
+            e.preventDefault();
+            forgotPasswordForm.classList.remove('active');
+            loginForm.classList.add('active');
+        };
 
-            window.onscroll = () => {
-                menuBtn.classList.remove('fa-times');
-                navbar.classList.remove('active');
-            };
-        </script>
-    </body>
+        showTerms.onclick = (e) => {
+            e.preventDefault();
+            new bootstrap.Modal(document.getElementById('termsModal')).show();
+        };
+
+        window.onscroll = () => {
+            menuBtn.classList.remove('fa-times');
+            navbar.classList.remove('active');
+        };
+    </script>
+</body>
 </html>
-
-
-
-
