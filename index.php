@@ -86,10 +86,35 @@ $userName = $isLoggedIn ? $_SESSION['user_name'] : null;
 
 
         <div class="search-container">
-            <input type="text" placeholder="Search...">
-            <button><i class="bi bi-search"></i></button>
-        </div>
+        <input type="text" id="searchInput" placeholder="Search Here!">
+        <button onclick="search()">Search</button>
+        <div id="alertMessage" style="color: red; margin-top: 10px;"></div>
+        </div>
 
+<script>
+const searchMapping = {
+    'catering': 'services.php',
+    'photography': 'services.php',
+    'sports': 'events.php',
+    'wedding': 'events.php'
+};
+
+function search() {
+    let query = document.getElementById('searchInput').value.toLowerCase().trim();
+    let alertDiv = document.getElementById('alertMessage');
+    
+    
+    alertDiv.innerHTML = '';
+
+    if (searchMapping[query]) {
+        
+        window.location.href = searchMapping[query];
+    } else {
+        
+        alertDiv.innerHTML = 'No matching pages found. Please try again.';
+    }
+}
+    </script>
           
         <div class="icons">
         <div class="user-avatar" id="userAvatar">

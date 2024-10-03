@@ -55,35 +55,34 @@ $userName = $isLoggedIn ? $_SESSION['user_name'] : null;
             <input type="text" placeholder="Search...">
             <button><i class="bi bi-search"></i></button>
         </div>
-   
-
+           
         <div class="icons">
-        <div class="user-avatar" id="userAvatar">
-    <a href="<?php 
-        if ($isLoggedIn) {
-            switch ($userType) {
-                case 'admin':
-                    echo '../dash_boards/admin_page.php';
-                    break;
-                case 'serviceProvider':
-                    echo '../dash_boards/serviceprovider.php';
-                    break;
-                case 'registered': 
-                    echo '../dash_boards/user_page.php';
-                    break;
-                default:
-                    echo 'login/login_form.php';
-            }
-        } else {
-            echo 'login/login_form.php';
-        }
-    ?>">
-        <img src="Images Project/user_Icon.png" alt="User Avatar">
-    </a>
-</div>
-
-</div>
-
+            <div class="user-avatar" id="userAvatar">
+                <a href="<?php
+                    if (isset($_SESSION['user_name'])) {
+                        switch ($_SESSION['user_type']) {
+                            case 'admin':
+                                echo 'login/admin_page.php';
+                                break;
+                            case 'serviceProvider':
+                                echo 'login/serviceprovider.php';
+                                break;
+                            case 'user':
+                                echo 'login/user_page.php';
+                                break;
+                            default:
+                                echo 'login/login_form.php';
+                                break;
+                        }
+                    } else {
+                        echo 'login/login_form.php';
+                    }
+                ?>">
+                    <img src="<?php echo isset($_SESSION['user_avatar']) ? $_SESSION['user_avatar'] : 'Images Project/user_Icon.png'; ?>" alt="User Avatar">
+                </a>
+            </div>
+            <i id="bar" class="fa-solid fa-bars"></i>
+        </div>
     </header>
 
     <script>
@@ -246,91 +245,92 @@ $userName = $isLoggedIn ? $_SESSION['user_name'] : null;
                 </section>
             </div>
 
-
-
-            <div class="packages-container">
-            <div class="predefined-packages">
-             <div class="events">
-                <h2 class="mt-5 text-center">Services</h2>
-                <div class="row row-cols-1 row-cols-md-4 g-4">
-                    <div class="col">
-                        <div class="package">
-                            <img src="Images Project/CateringBasic.jpg" alt="Catering Basic">
-                            <h3 class="title">Catering Basic</h3>
-                            <h4 class="price">LKR 80,000</h4>
-                            <ul>
-                                <li><i class="fas fa-check"></i> Basic Menu</li>
-                                <li><i class="fas fa-check"></i> Drinks</li>
-                            </ul>
-                            <a href="#" class="btn">Select</a>
-                        </div>
+<!-- Services packages -->
+<div class="packages-container">
+    <div class="predefined-packages">
+        <div class="events">
+            <h2 class="mt-5 text-center">Services</h2>
+            <div class="row row-cols-1 row-cols-md-4 g-4">
+                <div class="col">
+                    <div class="package" data-price="80000">
+                        <img src="Images Project/CateringBasic.jpg" alt="Catering Basic">
+                        <h3 class="title">Catering Basic</h3>
+                        <h4 class="price">LKR 80,000</h4>
+                        <ul>
+                            <li><i class="fas fa-check"></i> Basic Menu</li>
+                            <li><i class="fas fa-check"></i> Drinks</li>
+                        </ul>
+                        <button class="btn" onclick="selectService(this)">Select</button>
                     </div>
-                    <div class="col">
-                        <div class="package">
-                            <img src="Images Project/standardcatering.webp" alt="Catering Stanard">
-                            <h3 class="title">Catering Stanard</h3>
-                            <h4 class="price">LKR 120,000</h4>
-                            <ul>
-                                <li><i class="fas fa-check"></i> Standard Menu</li>
-                                <li><i class="fas fa-check"></i> Drinks and Desserts</li>
-                            </ul>
-                            <a href="#" class="btn">Select</a>
-                        </div>
+                </div>
+                <div class="col">
+                    <div class="package" data-price="120000">
+                        <img src="Images Project/standardcatering.webp" alt="Catering Standard">
+                        <h3 class="title">Catering Standard</h3>
+                        <h4 class="price">LKR 120,000</h4>
+                        <ul>
+                            <li><i class="fas fa-check"></i> Standard Menu</li>
+                            <li><i class="fas fa-check"></i> Drinks and Desserts</li>
+                        </ul>
+                        <button class="btn" onclick="selectService(this)">Select</button>
                     </div>
-                    <div class="col">
-                        <div class="package">
-                            <img src="Images Project/cateringpremium.webp" alt="Catering Premium">
-                            <h3 class="title">Catering Premium</h3>
-                            <h4 class="price">LKR 245,000</h4>
-                            <ul>
-                                <li><i class="fas fa-check"></i> Premium Menu</li>
-                                <li><i class="fas fa-check"></i> Drinks and Desserts</li>
-                                <li><i class="fas fa-check"></i> Drink</li>
-                            </ul>
-                            <a href="#" class="btn">Select</a>
-                        </div>
+                </div>
+                <div class="col">
+                    <div class="package" data-price="245000">
+                        <img src="Images Project/cateringpremium.webp" alt="Catering Premium">
+                        <h3 class="title">Catering Premium</h3>
+                        <h4 class="price">LKR 245,000</h4>
+                        <ul>
+                            <li><i class="fas fa-check"></i> Premium Menu</li>
+                            <li><i class="fas fa-check"></i> Drinks and Desserts</li>
+                            <li><i class="fas fa-check"></i> Drink</li>
+                        </ul>
+                        <button class="btn" onclick="selectService(this)">Select</button>
                     </div>
-                    <div class="col">
-                        <div class="package">
-                            <img src="Images Project/basichall.webp" alt="Wedding Hall Booking">
-                            <h3 class="title">Basic Wedding Hall</h3>
-                            <h4 class="price">LKR 50,000</h4>
-                            <ul>
-                                <li><i class="fas fa-check"></i> Venue</li>
-                                <li><i class="fas fa-check"></i> Seating Arrangement</li>
-                                <li><i class="fas fa-check"></i> Basic Decoration</li>
-                            </ul>
-                            <a href="#" class="btn">Select</a>
-                        </div>
+                </div>
+                <!-- Add additional services in the same format -->
+                <div class="col">
+                    <div class="package" data-price="50000">
+                        <img src="Images Project/basichall.webp" alt="Wedding Hall Booking">
+                        <h3 class="title">Basic Wedding Hall</h3>
+                        <h4 class="price">LKR 50,000</h4>
+                        <ul>
+                            <li><i class="fas fa-check"></i> Venue</li>
+                            <li><i class="fas fa-check"></i> Seating Arrangement</li>
+                            <li><i class="fas fa-check"></i> Basic Decoration</li>
+                        </ul>
+                        <button class="btn" onclick="selectService(this)">Select</button>
                     </div>
-                    <div class="col">
-                        <div class="package">
+                </div>
+                <div class="col">
+                        <div class="package" data-price="70000">
                             <img src="Images Project/hallstandard.jpg" alt="Wedding Hall Booking">
                             <h3 class="title">Wedding Hall Standard</h3>
-                            <h4 class="price">LKR 50,000</h4>
+                            <h4 class="price">LKR 70,000</h4>
                             <ul>
                                 <li><i class="fas fa-check"></i> Venue</li>
                                 <li><i class="fas fa-check"></i> Seating Arrangement</li>
                                 <li><i class="fas fa-check"></i>  Standard Decoration</li>
                             </ul>
-                            <a href="#" class="btn">Select</a>
+                            <button class="btn" onclick="selectService(this)">Select</button>
                         </div>
                     </div>
+
                     <div class="col">
-                        <div class="package">
+                        <div class="package" data-price="90000">
                             <img src="Images Project/premiumhall.png" alt="Wedding Hall Booking">
                             <h3 class="title">Wedding Hall Premium</h3>
-                            <h4 class="price">LKR 50,000</h4>
+                            <h4 class="price">LKR 90,000</h4>
                             <ul>
                                 <li><i class="fas fa-check"></i> Venue</li>
                                 <li><i class="fas fa-check"></i> Seating Arrangement</li>
                                 <li><i class="fas fa-check"></i> Premium Decoration</li>
                             </ul>
-                            <a href="#" class="btn">Select</a>
+                            <button class="btn" onclick="selectService(this)">Select</button>
                         </div>
                     </div>
                     <div class="col">
-                        <div class="package">
+                        <div class="package" data-price="40000">
                             <img src="Images Project/MAKEUP.jpg" alt="Basic Costume and Makeup">
                             <h3 class="title">Basic Costume and Makeup</h3>
                             <h4 class="price">LKR 40,000</h4>
@@ -338,11 +338,11 @@ $userName = $isLoggedIn ? $_SESSION['user_name'] : null;
                                 <li><i class="fas fa-check"></i> Basic Makeup</li>
                                 <li><i class="fas fa-check"></i> Costume Rental</li>
                             </ul>
-                            <a href="#" class="btn">Select</a>
+                            <button class="btn" onclick="selectService(this)">Select</button>
                         </div>
                     </div>
                    <div class="col">
-                        <div class="package">
+                        <div class="package" data-price="65000">
                             <img src="Images Project/StandardMakeup.jpeg" alt="Standard Costume and Makeup">
                             <h3 class="title">Standard Costume and Makeup</h3>
                             <h4 class="price">LKR 65,000</h4>
@@ -350,11 +350,11 @@ $userName = $isLoggedIn ? $_SESSION['user_name'] : null;
                                 <li><i class="fas fa-check"></i> Professional Makeup</li>
                                 <li><i class="fas fa-check"></i> Designer Costume</li>
                             </ul>
-                            <a href="#" class="btn">Select</a>
+                            <button class="btn" onclick="selectService(this)">Select</button>
                         </div>
                     </div>
                     <div class="col">
-                        <div class="package">
+                        <div class="package" data-price="90000">
                             <img src="Images Project/PremiumMakeup.jpeg" alt="Premium Costume and Makeup">
                             <h3 class="title">Premium Costume and Makeup</h3>
                             <h4 class="price">LKR 90,000</h4>
@@ -362,39 +362,39 @@ $userName = $isLoggedIn ? $_SESSION['user_name'] : null;
                                 <li><i class="fas fa-check"></i> Professional Makeup</li>
                                 <li><i class="fas fa-check"></i> Designer Costume</li>
                             </ul>
-                            <a href="#" class="btn">Select</a>
+                            <button class="btn" onclick="selectService(this)">Select</button>
                         </div>
                     </div>
                      <div class="col">
-                        <div class="package">
+                        <div class="package" data-price="50000">
                             <img src="Images Project/basicstage.jpeg" alt="Basic Stage Decoration">
                             <h3 class="title">Basic Stage Decoration</h3>
-                            <h4 class="price">LKR 95,000</h4>
+                            <h4 class="price">LKR 50,000</h4>
                             <ul>
                                 <li><i class="fas fa-check"></i> Decorations</li>
                                 <li><i class="fas fa-check"></i> Equipment</li>
                                 <li><i class="fas fa-check"></i> Awards</li>
                             </ul>
-                            <a href="#" class="btn">Select</a>
+                            <button class="btn" onclick="selectService(this)">Select</button>
                         </div>
                     </div>
                     
                      <div class="col">
-                        <div class="package">
+                        <div class="package" data-price="75000">
                             <img src="Images Project/sstandard.jpeg" alt="Standard Stage Decoration">
                             <h3 class="title">Standard Stage Decoration</h3>
-                            <h4 class="price">LKR 95,000</h4>
+                            <h4 class="price">LKR 75,000</h4>
                             <ul>
                                 <li><i class="fas fa-check"></i> Decorations</li>
                                 <li><i class="fas fa-check"></i> Equipment</li>
                                 <li><i class="fas fa-check"></i> Awards</li>
                             </ul>
-                            <a href="#" class="btn">Select</a>
+                            <button class="btn" onclick="selectService(this)">Select</button>
                         </div>
                     </div>
                     
                      <div class="col">
-                        <div class="package">
+                        <div class="package" data-price="95000">
                             <img src="Images Project/prestage.jpeg" alt="Premium Stage Decoration">
                             <h3 class="title">Premium Stage Decoration</h3>
                             <h4 class="price">LKR 95,000</h4>
@@ -403,35 +403,35 @@ $userName = $isLoggedIn ? $_SESSION['user_name'] : null;
                                 <li><i class="fas fa-check"></i> Equipment</li>
                                 <li><i class="fas fa-check"></i> Lights</li>
                             </ul>
-                            <a href="#" class="btn">Select</a>
+                            <button class="btn" onclick="selectService(this)">Select</button>
                         </div>
                     </div>
                     <div class="col">
-                        <div class="package">
+                        <div class="package" data-price="20000">
                             <img src="Images Project/Lightingbasic.jpg" alt="Decoration">
                             <h3 class="title">Decoration Lighting Basic</h3>
-                            <h4 class="price">LKR 50,000</h4>
+                            <h4 class="price">LKR 20,000</h4>
                             <ul>
                                 <li><i class="fas fa-check"></i> Venue</li>
                                 <li><i class="fas fa-check"></i> Basic Lights</li>
                             </ul>
-                            <a href="#" class="btn">Select</a>
+                            <button class="btn" onclick="selectService(this)">Select</button>
                         </div>
                     </div>
                      <div class="col">
-                        <div class="package">
+                        <div class="package" data-price="30000">
                             <img src="Images Project/standardlighting.jpg" alt="Decoration">
                             <h3 class="title">Decoration Lighting Standard</h3>
-                            <h4 class="price">LKR 50,000</h4>
+                            <h4 class="price">LKR 30,000</h4>
                             <ul>
                                 <li><i class="fas fa-check"></i> Venue</li>
                                 <li><i class="fas fa-check"></i> Standard Lights</li>
                             </ul>
-                            <a href="#" class="btn">Select</a>
+                            <button class="btn" onclick="selectService(this)">Select</button>
                         </div>
                     </div>
                      <div class="col">
-                        <div class="package">
+                        <div class="package" data-price="50000">
                             <img src="Images Project/premiumlighting.jpg" alt="Decoration">
                             <h3 class="title">Decoration Lighting Premium</h3>
                             <h4 class="price">LKR 50,000</h4>
@@ -439,12 +439,12 @@ $userName = $isLoggedIn ? $_SESSION['user_name'] : null;
                                 <li><i class="fas fa-check"></i> Venue</li>
                                 <li><i class="fas fa-check"></i> Premium Lights</li>
                             </ul>
-                            <a href="#" class="btn">Select</a>
+                            <button class="btn" onclick="selectService(this)">Select</button>
                         </div>
                     </div>
 
                     <div class="col">
-                        <div class="package">
+                        <div class="package" data-price="150000">
                             <img src="Images Project/Photography.jpg" alt="Photography Basic">
                             <h3 class="title">Photography Basic</h3>
                             <h4 class="price">LKR 150,000</h4>
@@ -452,11 +452,11 @@ $userName = $isLoggedIn ? $_SESSION['user_name'] : null;
                                 <li><i class="fas fa-check"></i> Photography</li>
                                 <li><i class="fas fa-check"></i> Digital Images</li>
                             </ul>
-                            <a href="#" class="btn">Select</a>
+                            <button class="btn" onclick="selectService(this)">Select</button>
                         </div>
                     </div>
                     <div class="col">
-                        <div class="package">
+                        <div class="package" data-price="200000">
                             <img src="Images Project/standardPhotography.png" alt="Photography Standard">
                             <h3 class="title">Photography Standard</h3>
                             <h4 class="price">LKR 200,000</h4>
@@ -464,11 +464,11 @@ $userName = $isLoggedIn ? $_SESSION['user_name'] : null;
                                 <li><i class="fas fa-check"></i> Photography</li>
                                 <li><i class="fas fa-check"></i> Quality Album</li>
                             </ul>
-                            <a href="#" class="btn">Select</a>
+                            <button class="btn" onclick="selectService(this)">Select</button>
                         </div>
                     </div>
                     <div class="col">
-                        <div class="package">
+                        <div class="package" data-price="225000">
                             <img src="Images Project/photographypremium.webp" alt="Photography Premium">
                             <h3 class="title">Photography Premium</h3>
                             <h4 class="price">LKR 225,000</h4>
@@ -477,11 +477,11 @@ $userName = $isLoggedIn ? $_SESSION['user_name'] : null;
                                 <li><i class="fas fa-check"></i> Highsheet Album</li>
                                 <li><i class="fas fa-check"></i> Two Location Outdoor </li>
                             </ul>
-                            <a href="#" class="btn">Select</a>
+                            <button class="btn" onclick="selectService(this)">Select</button>
                         </div>
                     </div>
                     <div class="col">
-                        <div class="package">
+                        <div class="package" data-price="120000">
                             <img src="Images Project/videographybasic.jfif" alt="Videography Basic">
                             <h3 class="title">Videography Basic</h3>
                             <h4 class="price">LKR 120,000</h4>
@@ -489,11 +489,11 @@ $userName = $isLoggedIn ? $_SESSION['user_name'] : null;
                                 <li><i class="fas fa-check"></i> Videography</li>
                                 <li><i class="fas fa-check"></i> Edited Video</li>
                             </ul>
-                            <a href="#" class="btn">Select</a>
+                            <button class="btn" onclick="selectService(this)">Select</button>
                         </div>
                     </div>
                       <div class="col">
-                        <div class="package">
+                        <div class="package" data-price="160000">
                             <img src="Images Project/standardvideography.jpg" alt="Videography Standard">
                             <h3 class="title">Videography Standard</h3>
                             <h4 class="price">LKR 160,000</h4>
@@ -501,11 +501,11 @@ $userName = $isLoggedIn ? $_SESSION['user_name'] : null;
                                 <li><i class="fas fa-check"></i> Videography</li>
                                 <li><i class="fas fa-check"></i> HD Quality Video Album</li>
                             </ul>
-                            <a href="#" class="btn">Select</a>
+                            <button class="btn" onclick="selectService(this)">Select</button>
                         </div>
                     </div>
-                      <div class="col">
-                        <div class="package">
+                      <div class="col" >
+                        <div class="package" data-price="200000">
                             <img src="Images Project/videography.jpg" alt="Videography Premium">
                             <h3 class="title">Videography Premium</h3>
                             <h4 class="price">LKR 200,000</h4>
@@ -513,22 +513,22 @@ $userName = $isLoggedIn ? $_SESSION['user_name'] : null;
                                 <li><i class="fas fa-check"></i> Videography</li>
                                 <li><i class="fas fa-check"></i> Drone Shoot</li>
                             </ul>
-                            <a href="#" class="btn">Select</a>
+                            <button class="btn" onclick="selectService(this)">Select</button>
                         </div>
                     </div>
                     <div class="col">
-                        <div class="package">
+                        <div class="package" data-price="10000">
                             <img src="Images Project/cars.jpg" alt="Basic Vehicle Hire">
                             <h3 class="title">Basic Vehicle Hire</h3>
                             <h4 class="price">LKR 10,000</h4>
                             <ul>
                                 <li><i class="fas fa-check"></i> Car Hire</li>
                             </ul>
-                            <a href="#" class="btn">Select</a>
+                            <button class="btn" onclick="selectService(this)">Select</button>
                         </div>
                     </div>
-                     <div class="col">
-                        <div class="package">
+                     <div class="col" >
+                        <div class="package" data-price="18000">
                             <img src="Images Project/standrad.jpg" alt="Standard Vehicle Hire">
                             <h3 class="title">Standard Vehicle Hire</h3>
                             <h4 class="price">LKR 18,000</h4>
@@ -536,11 +536,11 @@ $userName = $isLoggedIn ? $_SESSION['user_name'] : null;
                                 <li><i class="fas fa-check"></i> Car Hire</li>
                                 <li><i class="fas fa-check"></i> Days(03)</li>
                             </ul>
-                            <a href="#" class="btn">Select</a>
+                            <button class="btn" onclick="selectService(this)">Select</button>
                         </div>
                     </div>
                     <div class="col">
-                        <div class="package">
+                        <div class="package" data-price="25000">
                             <img src="Images Project/premimum.jpg" alt="Premium Vehicle Hire">
                             <h3 class="title">Premium Vehicle Hire</h3>
                             <h4 class="price">LKR 25,000</h4>
@@ -548,96 +548,74 @@ $userName = $isLoggedIn ? $_SESSION['user_name'] : null;
                                 <li><i class="fas fa-check"></i> Car and Van Hire</li>
                                 <li><i class="fas fa-check"></i> A Week</li>
                             </ul>
-                            <a href="#" class="btn">Select</a>
+                            <button class="btn" onclick="selectService(this)">Select</button>
                         </div>
                     </div>
                 </div>
             </div>
-
-            <!----customization-section---->
-
-           <div class="customization-section" style="height: 400px; overflow-y: auto;">
-  <h2>Customize Your Event</h2>
-  <form action="#" id="customization-form">
-    <div class="form-group">
-      <label for="event-type">Event Type:</label>
-      <select id="event-type" name="event-type" onchange="toggleWeddingType()">
-        <option value="">Select an Event Type</option>
-        <option value="wedding">Wedding</option>
-        <option value="party">Personal Party</option>
-        <option value="sports">Sports Event</option>
-        <option value="service-only">Service Only</option>
-      </select>
+                
     </div>
-    <div class="form-group" id="wedding-event-type-group" style="display: none;">
-      <label for="wedding-event-type">Wedding Event Type:</label>
-      <select id="wedding-event-type" name="wedding-event-type">
-        <option value="">Select Wedding Type</option>
-        <option value="christian-wedding">Christian Wedding</option>
-        <option value="hindu-wedding">Hindu Wedding</option>
-        <option value="muslim-wedding">Muslim Wedding</option>
-        <option value="buddhist-wedding">Buddhist Wedding</option>
-      </select>
-    </div>
-    <!-- Other form groups -->
-    <div class="form-group">
-      <label for="services">Select Services:</label>
-      <div>
-        <input type="checkbox" id="photography" name="services"  onclick="updateTotal()">
-        <label for="photography">Photography</label>
-      </div>
-      <div>
-        <input type="checkbox" id="videography" name="services" onclick="updateTotal()">
-        <label for="videography">Videography</label>
-      </div>
-      <div>
-        <input type="checkbox" id="catering" name="services" onclick="updateTotal()">
-        <label for="catering">Catering</label>
-      </div>
-      <div>
-        <input type="checkbox" id="Decoration" name="services" onclick="updateTotal()">
-        <label for="Decoration">Decoration</label>
-      </div>
-      <div>
-        <input type="checkbox" id="makeup" name="services"  onclick="updateTotal()">
-        <label for="makeup">Makeup</label>
-      </div>
-      <div>
-        <input type="checkbox" id="Costume" name="services" onclick="updateTotal()">
-        <label for="makeup">Costume</label>
-      </div>
-      <div>
-        <input type="checkbox" id="vehicle" name="services" onclick="updateTotal()">
-        <label for="vehicle">Vehicle Hire</label>
-      </div>
-    </div>
-    <div class="form-group">
-      <label for="custom-feature">Additional Features:</label>
-      <input type="text" id="custom-feature" name="custom-feature" placeholder="Enter Your Additional Features*">
-    </div>
-    <div class="form-group">
-      <label for="budget">Budget (LKR):</label>
-      <input type="number" id="budget" name="budget" placeholder="Enter Your Budget">
-    </div>
-    <div class="form-group">
-      <label for="custom-notes">Additional Notes:</label>
-      <textarea id="custom-notes" name="custom-notes"></textarea>
-    </div>
-    <div class="bill-summary">
-      <h3>Bill Summary</h3>
-      <div class="bill-details" id="bill-details">
-        <p>Total: LKR 0</p>
-      </div>
-         <a href="../pages/payments/payment.php"><button class="btn" type="submit">Pay Now</button></a> 
-    </div>
-  </form>
-  <div class="service-providers" id="provider-section" style="display:none;">
-    <h3>Service Providers</h3>
-    <ul id="provider-list">
-      <!-- Service providers will be listed here based on the budget -->
-    </ul>
-  </div>
 </div>
+    </div>
+</div>
+<div class="bill-summary">
+    <h3>Bill Summary</h3>
+    <div class="bill-details" id="bill-details">
+        <p id="selected-services">No services selected</p>
+        <p>Total: <span id="total-amount">LKR 0</span></p>
+    </div>
+    <button class="btn" id="pay-button" type="button">Pay Now</button>
+</div>
+
+<script>
+    let selectedServices = [];
+    let totalAmount = 0;
+
+    function selectService(button) {
+        const packageDiv = button.parentElement; // Get the parent package div
+        const serviceName = packageDiv.querySelector('.title').textContent; // Get service name
+        const servicePrice = parseFloat(packageDiv.getAttribute('data-price')); // Get service price
+
+        // Toggle selection
+        if (selectedServices.includes(serviceName)) {
+            // Deselect service
+            selectedServices = selectedServices.filter(service => service !== serviceName);
+            totalAmount -= servicePrice; // Subtract price
+            button.classList.remove('selected'); // Remove selected styling
+        } else {
+            // Select service
+            selectedServices.push(serviceName);
+            totalAmount += servicePrice; // Add price
+            button.classList.add('selected'); // Add selected styling
+        }
+
+        // Update bill summary
+        updateBillSummary();
+    }
+
+    function updateBillSummary() {
+        // Update the selected services display
+        const servicesDisplay = selectedServices.length > 0 ? selectedServices.join('<br>') : 'No services selected';
+        document.getElementById('selected-services').innerHTML = servicesDisplay;
+
+        // Update total amount
+        document.getElementById('total-amount').innerText = `LKR ${totalAmount.toLocaleString()}`;
+
+        // Enable or disable the Pay Now button
+        const payButton = document.getElementById('pay-button');
+        payButton.disabled = totalAmount <= 0; // Disable if total amount is zero or less
+    }
+
+    // Event listener for Pay Now button
+    document.getElementById('pay-button').addEventListener('click', function() {
+        if (totalAmount > 0) { // Check if total amount is greater than zero
+            // Redirect to the payment page
+            window.location.href = "payments/payment.php"; // Update with your payment page URL
+        } else {
+            alert("No Services Selected");
+        }
+    });
+</script>
 
 
     <!-- Service Providers Section -->
@@ -826,5 +804,5 @@ $userName = $isLoggedIn ? $_SESSION['user_name'] : null;
 
 
         </script>
-    </body>
+    </body>
 </html>

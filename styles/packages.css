@@ -741,7 +741,7 @@ section {
     color: #666666;
 }
 
-.customization-section .bill-summary {
+ .bill-summary {
     background-color: #f4f4f4;
     padding: 25px; /* Padding inside the bill summary */
     border-radius: 10px; /* Border radius for rounded corners */
@@ -750,13 +750,13 @@ section {
     margin-top: 25px; /* Margin above the bill summary */
 }
 
-.customization-section .bill-summary h3 {
+ .bill-summary h3 {
     font-size: 1.75rem; /* Font size for the bill summary heading */
     margin-bottom: 15px; /* Margin below the heading */
     color: #333333;
 }
 
-.customization-section .bill-details p {
+.bill-details p {
     font-size: 1.5rem; /* Font size for the bill details */
     color: #333333;
 }
