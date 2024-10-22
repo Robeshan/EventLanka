@@ -1,0 +1,1 @@
+EventLanka is a dynamic event management platform designed to streamline the process of booking services for events. It enables users to browse, select, and book service packages offered by multiple service providers, with flexible payment options including full, advance, and balance payments.
